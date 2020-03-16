@@ -1,0 +1,25 @@
+<label> Server Name</label>
+<!-- イベントバインディングのinput文 -->
+<!-- <input 
+  type="text"
+  class="form-control"
+  (input)="onUpdateServerName($event)"> -->
+  
+  <!-- 2way バインディング　input文 -->
+  <input
+  type="text"
+  class="form-control"
+  [(ngModel)] = "serverName">
+  <!-- <p>{{ serverName }}</p> -->
+  
+  <!-- プロパティバインディング＆イベントバインディング -->
+  <button
+  class="btn btn-primary"
+  [disabled] = "!allowNewServer"
+  (click)="onCreateServer()">Add Server</button>
+<!--  プロパティバインディング　-->
+<!-- <p [innerText] = "allowNewServer"></p> -->
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<p *ngIf="serverCreated">Server was created. server name is {{ serverName }}</p>
+<app-server *ngFor="let server of servers"></app-server>
+
